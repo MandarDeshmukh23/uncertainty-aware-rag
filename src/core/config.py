@@ -5,9 +5,10 @@ class Settings(BaseSettings):
     environment: str = "development"
     debug: bool = True
     api_v1_prefix: str = "/api/v1"
+    
+    # New: Database connection string (defaults to a local SQLite file)
+    database_url: str = "sqlite:///./rag_system.db"
 
-    # Automatically read from a .env file if it exists
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-# Instantiate a global settings object to be imported across the app
 settings = Settings()
