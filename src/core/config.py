@@ -6,8 +6,10 @@ class Settings(BaseSettings):
     debug: bool = True
     api_v1_prefix: str = "/api/v1"
     
-    # New: Database connection string (defaults to a local SQLite file)
     database_url: str = "sqlite:///./rag_system.db"
+    
+    # New: RabbitMQ connection string
+    celery_broker_url: str = "amqp://guest:guest@localhost:5672//"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
